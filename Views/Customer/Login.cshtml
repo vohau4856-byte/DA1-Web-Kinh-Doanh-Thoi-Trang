@@ -1,0 +1,51 @@
+﻿@model DA1CNTT.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+
+}
+<title>CLOTHING STORE - @ViewData["Title"] </title>
+<link rel="stylesheet" href="~/css/Login.css" />
+<body>
+
+
+    <div class="login-wrapper">
+        <div class="left-content" >
+           
+            <h1>CLOTHING STORE</h1>
+            <p>Chào mừng bạn đến với cửa hàng thời trang hàng đầu. Khám phá những bộ sưu tập mới nhất và tìm kiếm phong cách riêng của bạn.</p>
+        </div>
+
+        <div class="right-form">
+        <section>
+                <form id="login-form" method="post">
+                <h1>ĐĂNG NHẬP</h1>
+                    
+                        @if (ViewBag.Error != null)
+                        {
+                        <div class="error-message">
+                            @ViewBag.Error
+                        </div>
+                        }
+                    
+                <div class="inputbox">
+                    <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" id="Username" name="Username" autocomplete="off" required>
+                    <label for="Username">Tên Đăng Nhập hoặc Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="PasswordUsers" name="PasswordUsers" autocomplete="off" required>
+                        <label for="PasswordUsers">Mật Khẩu</label>
+                </div>
+                    <button type="submit" id="login-button">ĐĂNG NHẬP</button>
+                <div class="register">
+                    <P>Bạn mới biết đến Clothing Store?<a href="~/Customer/Register" style="color:#fff"> Đăng Ký</a></P>
+                </div>
+            </form>
+        </section>
+        </div>
+    </div>
+</body>
+

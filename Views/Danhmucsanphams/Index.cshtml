@@ -1,0 +1,122 @@
+﻿@model IEnumerable<DA1CNTT.Models.Danhmucsanpham>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản Lý Sản Phẩm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/AdminCSS.css" />
+
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+
+
+
+                <strong>Admin</strong>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="~/Admin/Index" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Home
+                </a>
+                <a href="~/Users" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    Người dùng
+                </a>
+                <a href="~/SanPhams" class="nav-item">
+                    <i class="fas fa-box"></i>
+                    Sản phẩm
+                </a>
+                <a href="~/Loaisanphams" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    Loại Sản Phẩm
+                </a>
+                <a href="~/Danhmucsanphams" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    Danh Mục Sản Phẩm
+                </a>
+                <a href="~/Donhangs" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    Đơn Hàng
+                </a>
+                <a href="~/Customer/Logout" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Đăng xuất
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header">
+                <h1 class="page-title">Quản lý sản phẩm</h1>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div>
+                        <div style="font-weight: 600;">Admin</div>
+                        <div style="font-size: 12px; color: #666;">Quản trị viên</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <div class="section-header">
+                    <h2 class="section-title">Quản lý sản phẩm</h2>
+                    <button class="btn-primary">
+                        <i class="fa-plus"> <a asp-action="Create" style="text-decoration: none;">Thêm Sản Phẩm</a></i>
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>Mã Danh Muc</th>
+                                <th>Tên Danh Muc</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdDanhmuc)
+                                    </td>
+                                    <td>@Html.DisplayFor(modelItem => item.NameDanhmuc)</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-action btn-edit">
+                                                <a asp-action="Edit" asp-route-id="@item.IdDanhmuc" style="text-decoration: none;"> <i class="fas fa-edit"></i></a>
+                                            </button>
+                                            <button class="btn-action btn-delete">
+                                                <a asp-action ="Delete" asp-route-id="@item.IdDanhmuc" style="text-decoration: none;">  <i class="fas fa-trash" style="text-decoration: none;"></i></a>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+

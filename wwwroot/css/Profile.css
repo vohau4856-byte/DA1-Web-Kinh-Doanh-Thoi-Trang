@@ -1,0 +1,263 @@
+﻿/* Reset specific styles for profile page */
+.profile-page {
+    /* Reset any inherited styles */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background-color: #f5f5f5 !important;
+    padding: 20px !important;
+    line-height: 1.6 !important;
+    min-height: calc(100vh - 200px);
+}
+
+    /* Override any existing container styles */
+    .profile-page .container,
+    .profile-page .profile-container {
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        background: white !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+    }
+
+    /* Override any existing header styles */
+    .profile-page .header,
+    .profile-page .profile-header {
+        background: #fff !important;
+        padding: 30px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        margin: 0 !important;
+    }
+
+        .profile-page .header h1,
+        .profile-page .profile-header h1 {
+            font-size: 28px !important;
+            font-weight: 600 !important;
+            color: #333 !important;
+            margin-bottom: 8px !important;
+            margin-top: 0 !important;
+        }
+
+        .profile-page .header p,
+        .profile-page .profile-header p {
+            color: #666 !important;
+            font-size: 16px !important;
+            margin: 0 !important;
+        }
+
+    .profile-page .form-container,
+    .profile-page .profile-form-container {
+        padding: 30px !important;
+        display: flex !important;
+        gap: 40px !important;
+        margin: 0 !important;
+    }
+
+    .profile-page .form-left,
+    .profile-page .profile-form-left {
+        flex: 2 !important;
+    }
+
+    .profile-page .form-right,
+    .profile-page .profile-form-right {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-top: 20px !important;
+    }
+
+    .profile-page .form-group,
+    .profile-page .profile-form-group {
+        display: flex !important;
+        align-items: center !important;
+        margin-bottom: 25px !important;
+        gap: 20px !important;
+    }
+
+        .profile-page .form-group label,
+        .profile-page .profile-form-group label {
+            width: 120px !important;
+            font-weight: 500 !important;
+            color: #333 !important;
+            text-align: right !important;
+            flex-shrink: 0 !important;
+            font-size: 14px !important;
+        }
+
+        .profile-page .form-group input,
+        .profile-page .profile-form-group input,
+        .profile-page .form-group textarea,
+        .profile-page .profile-form-group textarea {
+            flex: 1 !important;
+            padding: 12px 16px !important;
+            border: 1px solid #ddd !important;
+            border-radius: 6px !important;
+            font-size: 16px !important;
+            transition: border-color 0.3s ease !important;
+            background: white !important;
+            color: #333 !important;
+            font-family: inherit !important;
+        }
+
+        .profile-page .form-group textarea,
+        .profile-page .profile-form-group textarea {
+            resize: vertical !important;
+            min-height: 80px !important;
+        }
+
+            .profile-page .form-group input:focus,
+            .profile-page .profile-form-group input:focus,
+            .profile-page .form-group textarea:focus,
+            .profile-page .profile-form-group textarea:focus {
+                outline: none !important;
+                border-color: #007bff !important;
+                box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+            }
+
+    .profile-page .avatar-section,
+    .profile-page .profile-avatar-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    .profile-page .avatar-container,
+    .profile-page .profile-avatar-container {
+        position: relative !important;
+    }
+
+    .profile-page .avatar,
+    .profile-page .profile-avatar {
+        width: 100px !important;
+        height: 100px !important;
+        border-radius: 50% !important;
+        background-color: #f0f0f0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: 3px solid #e5e5e5 !important;
+        margin: 20px;
+    }
+
+    .profile-page .avatar-icon,
+    .profile-page .profile-avatar-icon {
+        width: 50px !important;
+        height: 50px !important;
+        color: #999 !important;
+    }
+
+    .profile-page .avatar-upload,
+    .profile-page .profile-avatar-upload {
+        margin-top: 10px !important;
+        text-align: center !important;
+    }
+
+        .profile-page .avatar-upload input[type="file"],
+        .profile-page .profile-avatar-upload input[type="file"] {
+            display: none !important;
+        }
+
+    .profile-page .upload-label,
+    .profile-page .profile-upload-label {
+        display: inline-block !important;
+        padding: 8px 16px !important;
+        background-color: #f8f9fa !important;
+        border: 1px solid #ddd !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        font-size: 14px !important;
+        color: #333 !important;
+        transition: background-color 0.3s ease !important;
+        text-decoration: none !important;
+    }
+
+        .profile-page .upload-label:hover,
+        .profile-page .profile-upload-label:hover {
+            background-color: #e9ecef !important;
+        }
+
+    .profile-page .upload-info,
+    .profile-page .profile-upload-info {
+        font-size: 12px !important;
+        color: #666 !important;
+        margin-top: 5px !important;
+        text-align: center !important;
+    }
+
+    .profile-page .note,
+    .profile-page .profile-note {
+        font-size: 14px !important;
+        color: #666 !important;
+        margin-left: 140px !important;
+        margin-top: -20px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .profile-page .link-button,
+    .profile-page .profile-link-button {
+        color: #007bff !important;
+        text-decoration: none !important;
+        font-size: 14px !important;
+    }
+
+        .profile-page .link-button:hover,
+        .profile-page .profile-link-button:hover {
+            text-decoration: underline !important;
+        }
+
+    .profile-page .save-button,
+    .profile-page .profile-save-button {
+        background-color: #ff6b35 !important;
+        color: white !important;
+        border: none !important;
+        padding: 12px 30px !important;
+        border-radius: 6px !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        margin-left: 140px !important;
+        transition: background-color 0.3s ease !important;
+    }
+
+        .profile-page .save-button:hover,
+        .profile-page .profile-save-button:hover {
+            background-color: #e55a2b !important;
+        }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .profile-page .form-container,
+    .profile-page .profile-form-container {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .profile-page .form-group,
+    .profile-page .profile-form-group {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+    }
+
+        .profile-page .form-group label,
+        .profile-page .profile-form-group label {
+            text-align: left !important;
+            width: auto !important;
+        }
+
+    .profile-page .note,
+    .profile-page .profile-note {
+        margin-left: 0 !important;
+    }
+
+    .profile-page .save-button,
+    .profile-page .profile-save-button {
+        margin-left: 0 !important;
+        align-self: flex-start !important;
+    }
+}

@@ -1,0 +1,77 @@
+﻿@model DA1CNTT.Models.Sanpham
+
+@{
+    ViewData["Title"] = "CHI TIẾT SẢN PHẨM";
+}
+
+<link rel="stylesheet" href="~/css/DetailsSP.css" />
+<link rel="stylesheet" href="~/css/HomeIndex.css" />
+
+
+
+<div class="breadcrumb">
+    <nav>
+        <a href="~/Home/Index">Trang chủ</a>
+        <span>/</span>
+        <a href="~/SanPham">Sản Phẩm</a>
+        <span>/</span>
+        <a href="#">@ViewBag.ProductName</a>
+    </nav>
+</div>
+
+<form method="post" action="@Url.Action("ThemVaoGio", "Giohang")">
+    <input type="hidden" name="MaSanPham" value="@Model.IdSanpham" />
+        <div class="product-detail">
+            <div class="product-images">
+                <img src="~/ImgSanPham/@Model.ImageUrl" alt="@Model.TenSanpham" class="main-image">
+            </div>
+
+            <div class="product-info">
+        <h1 class="product-title">@Model.TenSanpham</h1>
+        <span class="stock-badge @(Model.SoLuongTonKho > 0 ? "in-stock" : "out-of-stock")">
+            @(Model.SoLuongTonKho > 0 ? "Còn hàng" : "Hết hàng")
+        </span>
+
+                <div class="product-meta">
+                     <span>Loại: <strong>@Model.IdLoaiNavigation?.NameLoai</strong></span>
+                    <span>MSP: <strong>@Model.IdSanpham</strong></span>
+                     <span>Danh Mục: <strong> @Model.IdDanhmucNavigation?.NameDanhmuc</strong></span>
+                    <span>Kích Thước: <strong>@Model.Size</strong></span>
+                </div>
+
+                 <div class="price">₫@Model.Gia?.ToString("N0")</div>
+
+                <div class="quantity-section">
+                    <div class="section-title">Số lượng:</div>
+                    <div class="quantity-controls">
+                        <div class="quantity-input">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                            <input type="number" name="SoLuong" class="quantity-number" value="1" min="1" id="quantity">
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                <button type="submit" name="action" value="ThemVaoGio" class="btn btn-primary">🛒 Thêm vào giỏ hàng</button>
+                
+                </div>
+            </div>
+
+
+        </div>
+</form>
+<script>
+    function increaseQuantity() {
+        let input = document.getElementById("quantity");
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function decreaseQuantity() {
+        let input = document.getElementById("quantity");
+        if (parseInt(input.value) > 1) {
+            input.value = parseInt(input.value) - 1;
+        }
+    }
+</script>

@@ -1,0 +1,340 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <title>CLOTHING STORE - @ViewData["Title"] </title>
+    <!-- Font Awesome + Boxicons (icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/css/_LayoutIndex.css">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="~/Home/Index"><img src="~/ImgWeb/logo.jpg" width="300" height="300" alt="logo"></a>
+        </div>
+
+        <nav class="header-menu">
+            <ul>
+                <li><a href="~/Home/Index">Trang Chủ</a></li>
+                <li><a href="~/SanPham/Index">Sản Phẩm</a>
+                </li>
+                <li><a href="~/Home/Thongtinlienhe">Liên Hệ</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-search">
+            <div class="search-input-group">
+                 <form method="get" action="@Url.Action("Index", "Sanpham")">
+                <input type="text" placeholder="Tìm kiếm sản phẩm..." class="search-input" id="searchInput">
+                <button class="search-btn" aria-label="Tìm kiếm" id="searchBtn"><i class="fas fa-search"></i></button>
+                </form>
+                
+            </div>
+        </div>
+
+
+
+        <div class="header-icon">
+            <a href="~/GioHang/Index"><i class='bx bxs-basket' style="margin: 10px;"></i> Giỏ Hàng</a>
+
+
+            @if (!string.IsNullOrEmpty(Context.Session.GetString("TenDangNhap")))
+            {
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            @{
+                                string displayName = Context.Session.GetString("DisplayName") ?? Context.Session.GetString("TenDangNhap") ?? "U";
+                            }
+                            @displayName.Substring(0, 1).ToUpper()
+                        </div>
+                        <span class="user-name">@displayName</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="user-dropdown-menu">
+                        <button onclick="window.location.href='/Customer/Profile'"
+                                class="dropdown-item"
+                                style="border: none; background: none; width: 100%; text-align: left; cursor: pointer;">
+                            <i class="fas fa-user"></i>
+                            Thông tin cá nhân
+                        </button>
+
+
+
+                        <button onclick="window.location.href='/Customer/ChangePassword'"
+                                class="dropdown-item"
+                                style="border: none; background: none; width: 100%; text-align: left; cursor: pointer;">
+                            <i class="fas fa-key"></i>
+                            Đổi mật khẩu
+                        </button>
+
+                        <button onclick="window.location.href='/Customer/Logout'"
+                                class="dropdown-item logout"
+                                style="border: none; background: none; width: 100%; text-align: left; cursor: pointer;">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Đăng xuất
+                        </button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <a href="~/Customer/Login"><i class="fa fa-user" style="margin: 10px;"></i> Đăng Nhập</a>
+            }
+        
+                    
+
+
+            </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Search functionality
+                const searchInput = document.getElementById('searchInput');
+                const searchBtn = document.getElementById('searchBtn');
+                const searchDropdown = document.getElementById('searchDropdown');
+
+                let searchTimeout;
+                let currentSearchRequest;
+
+                // Tìm kiếm khi người dùng gõ
+                searchInput.addEventListener('input', function(e) {
+                    const keyword = e.target.value.trim();
+
+                    // Clear previous timeout
+                    clearTimeout(searchTimeout);
+
+                    // Cancel previous request
+                    if (currentSearchRequest) {
+                        currentSearchRequest.abort();
+                    }
+
+                    if (keyword.length === 0) {
+                        hideSearchDropdown();
+                        return;
+                    }
+
+                    if (keyword.length < 2) {
+                        return; // Chỉ tìm khi có ít nhất 2 ký tự
+                    }
+
+                    // Debounce search
+                    searchTimeout = setTimeout(() => {
+                        performSearch(keyword);
+                    }, 300);
+                });
+
+                // Tìm kiếm khi click nút search
+                searchBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const keyword = searchInput.value.trim();
+                    if (keyword) {
+                        redirectToSearchResults(keyword);
+                    }
+                });
+
+                // Tìm kiếm khi nhấn Enter
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const keyword = searchInput.value.trim();
+                        if (keyword) {
+                            redirectToSearchResults(keyword);
+                        }
+                    }
+                });
+
+                // Ẩn dropdown khi click bên ngoài
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.search-input-group')) {
+                        hideSearchDropdown();
+                    }
+                });
+
+                // Hàm thực hiện tìm kiếm AJAX
+                async function performSearch(keyword) {
+                    try {
+                        showSearchLoading();
+
+                        // Create AbortController for this request
+                        const controller = new AbortController();
+                        currentSearchRequest = controller;
+
+                        const response = await fetch(`/Sanpham/Search?keyword=${encodeURIComponent(keyword)}`, {
+                            signal: controller.signal
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+
+                        const result = await response.json();
+
+                        if (result.success && result.data && result.data.length > 0) {
+                            showSearchResults(result.data, keyword);
+                        } else {
+                            showNoResults(keyword);
+                        }
+
+                    } catch (error) {
+                        if (error.name !== 'AbortError') {
+                            console.error('Search error:', error);
+                            showSearchError();
+                        }
+                    } finally {
+                        currentSearchRequest = null;
+                    }
+                }
+
+                // Hiển thị loading
+                function showSearchLoading() {
+                    searchDropdown.innerHTML = '<div class="search-loading"><i class="fas fa-spinner fa-spin"></i> Đang tìm kiếm...</div>';
+                    searchDropdown.classList.add('show');
+                }
+
+                // Hiển thị kết quả tìm kiếm
+                function showSearchResults(products, keyword) {
+                    let html = '';
+
+                    products.forEach(product => {
+                        html += `
+                            <div class="search-item" onclick="goToProduct('${product.id}')">
+                                <img src="/ImgSanPham/${product.image}" alt="${product.name}" class="search-item-image" onerror="this.src='/images/no-image.png'">
+                                <div class="search-item-info">
+                                    <div class="search-item-name">${highlightKeyword(product.name, keyword)}</div>
+                                    <div class="search-item-category">${product.category}</div>
+                                </div>
+                                <div class="search-item-price">₫${formatPrice(product.price)}</div>
+                            </div>
+                        `;
+                    });
+
+                    // Thêm nút "Xem tất cả"
+                    html += `<div class="search-view-all" onclick="redirectToSearchResults('${keyword}')">Xem tất cả kết quả cho "${keyword}"</div>`;
+
+                    searchDropdown.innerHTML = html;
+                    searchDropdown.classList.add('show');
+                }
+
+                // Hiển thị thông báo không có kết quả
+                function showNoResults(keyword) {
+                    searchDropdown.innerHTML = `<div class="search-no-results">Không tìm thấy sản phẩm nào cho "${keyword}"</div>`;
+                    searchDropdown.classList.add('show');
+                }
+
+                // Hiển thị lỗi
+                function showSearchError() {
+                    searchDropdown.innerHTML = '<div class="search-no-results">Có lỗi xảy ra khi tìm kiếm. Vui lòng thử lại.</div>';
+                    searchDropdown.classList.add('show');
+                }
+
+                // Ẩn dropdown
+                function hideSearchDropdown() {
+                    searchDropdown.classList.remove('show');
+                }
+
+                // Format giá tiền
+                function formatPrice(price) {
+                    return price ? price.toLocaleString('vi-VN') : '0';
+                }
+
+                // Highlight từ khóa trong kết quả
+                function highlightKeyword(text, keyword) {
+                    if (!keyword || !text) return text;
+                    const regex = new RegExp(`(${keyword})`, 'gi');
+                    return text.replace(regex, '<strong>$1</strong>');
+                }
+
+                // Chuyển đến trang chi tiết sản phẩm
+                window.goToProduct = function(productId) {
+                    window.location.href = `/Sanpham/Details/${productId}`;
+                };
+
+                // Chuyển đến trang kết quả tìm kiếm
+                window.redirectToSearchResults = function(keyword) {
+                    window.location.href = `/Sanpham/Index?search=${encodeURIComponent(keyword)}`;
+                };
+
+                // Dropdown menu logic (existing code)
+                const menuItems = document.querySelectorAll('.header-menu ul li');
+                menuItems.forEach(item => {
+                    const dropdown = item.querySelector('.dropdown');
+                    if (dropdown) {
+                        let hoverTimer;
+
+                        item.addEventListener('mouseenter', () => {
+                            clearTimeout(hoverTimer);
+                            dropdown.style.display = 'block';
+                            dropdown.offsetHeight;
+                        });
+
+                        item.addEventListener('mouseleave', () => {
+                            hoverTimer = setTimeout(() => {
+                                dropdown.style.display = 'none';
+                            }, 150);
+                        });
+
+                        dropdown.addEventListener('mouseenter', () => {
+                            clearTimeout(hoverTimer);
+                        });
+
+                        dropdown.addEventListener('mouseleave', () => {
+                            hoverTimer = setTimeout(() => {
+                                dropdown.style.display = 'none';
+                            }, 150);
+                        });
+                    }
+                });
+
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        console.log('Clicked:', item.textContent);
+                    });
+                });
+            });
+        </script>
+        </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VỀ CHÚNG TÔI</h3>
+                    <p>Được thành lập vào giữa năm 2025 trong bối cảnh thời trang streetstyle đấn nhập vào thị trường Việt Nam. Sau khi đến thị trường Việt Nam, CLOTHING STORE với slogan 'Young kids with a mission™' đã chiếm được tình cảm của hầu hết các bạn trẻ yêu mến thời trang đường phố trên khắp cả nước.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>CHÍNH SÁCH</h3>
+                    <ul class="footer-links">
+                        <li><a href="~/Home/ChinhSach">Chính sách bảo mật</a></li>
+                        <li><a href="~/Home/HuongDan">Hướng dẫn mua hàng</a></li>
+                        <li><a href="~/Home/PhuongThucThanhToan">Phương thức thanh toán</a></li>
+                        <li><a href="~/Home/ChinhSachVanChuyen">Chính sách giao nhận - vận chuyển</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>HỆ THỐNG CLOTHING STORE</h3>
+                    <div class="store-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><a href="https://maps.app.goo.gl/7GhbaLRFnkU4u6wNA" style="outline:none; text-decoration: none; color: #666;">Store 1: 25/9A, Nguyễn Văn Linh, Hưng Lợi, Ninh Kiều, Cần Thơ</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+<title>CLOTHING STORE - @ViewData["Title"] </title>
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<body>
+    <div class="login-wrapper">
+        <div class="left-content">
+
+            <h1>CLOTHING STORE</h1>
+            <p>Chào mừng bạn đến với cửa hàng thời trang hàng đầu. Khám phá những bộ sưu tập mới nhất và tìm kiếm phong cách riêng của bạn.</p>
+        </div>
+
+        <div class="right-form">
+        <section>
+                <form id="login-form" method="post">
+                <h1>ĐĂNG KÝ</h1>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="error-message">
+                            @ViewBag.Error
+                        </div>
+                    }
+
+                <div class="inputbox">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" id="email" name="username" autocomplete="off" required>
+                    <label for="username">Tên Đăng Nhập</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="email-outline"></ion-icon>
+                    <input type="text" id="email" name="email" autocomplete="off" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="password" name="password" autocomplete="off" required>
+                    <label for="password">Mật Khẩu</label>
+                </div>
+                    <button type="submit" id="login-button">ĐĂNG KÝ</button>
+                <div class="register">
+                    <P>Bạn đã có tài khoản? <a href="~/Customer/Login" style="color:#fff">  Đăng Nhập</a></P>
+                </div>
+
+            </form>
+        </section>
+        </div>
+    </div>
+</body>
+

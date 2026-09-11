@@ -1,0 +1,582 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: black;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+    text-decoration: none;
+}
+
+    .user-info:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-name {
+    margin-right: 8px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.user-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+.user-dropdown:hover .user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+    .dropdown-item:first-child {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .dropdown-item:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+        background: #f8f9fa;
+        color: #667eea;
+        text-decoration: none;
+    }
+
+    .dropdown-item.logout {
+        color: #dc3545;
+    }
+
+        .dropdown-item.logout:hover {
+            background: #fff5f5;
+            color: #c82333;
+        }
+
+    .dropdown-item i {
+        margin-right: 8px;
+        width: 16px;
+        text-align: center;
+    }
+
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #000;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+    .carousel-slide.active {
+        opacity: 1;
+    }
+
+/* Slide 1 - Fashion */
+.slide-1 {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/ImgWeb/hero-img1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+}
+
+    .slide-1 .content,
+    .slide-2 .content,
+    .slide-3 .content {
+        max-width: 800px;
+        text-align: center;
+        z-index: 2;
+    }
+
+        .slide-1 .content h1,
+        .slide-2 .content h1,
+        .slide-3 .content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-1 .content .subtitle,
+        .slide-2 .content .subtitle,
+        .slide-3 .content .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+    .slide-1 .image-section {
+        display: none;
+    }
+
+/* Slide 2 - Tech */
+.slide-2 {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/ImgWeb/hero-img2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+    .slide-2 .content {
+        max-width: 800px;
+        text-align: center;
+        z-index: 2;
+    }
+
+        .slide-2 .content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #00ff88, #00aaff);
+            -webkit-background-clip:content-box;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .slide-2 .content .subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+    .slide-2 .laptop-section {
+        display: none;
+    }
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+    }
+
+    to {
+        box-shadow: 0 0 60px rgba(0, 255, 136, 0.5);
+    }
+}
+
+/* Slide 3 - Business */
+.slide-3 {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/ImgWeb/hero-img3.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+    .slide-3 .content {
+        max-width: 800px;
+        text-align: center;
+        z-index: 2;
+    }
+
+        .slide-3 .content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-3 .content .subtitle {
+            opacity: 0.9;
+        }
+
+    .slide-3 .image-section {
+        display: none;
+    }
+
+/* CTA Button - Remove */
+
+/* Navigation Dots */
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+    .dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+
+    .dot:hover {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+/* Navigation Arrows - Mới: Hình vuông, bên phải phía dưới */
+.nav-arrow {
+    position: absolute;
+    bottom: 30px; /* Thay vì top: 50% */
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px; /* Thay vì 50% để tạo hình vuông bo góc */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    z-index: 10;
+}
+
+    .nav-arrow:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1); /* Bỏ translateY */
+    }
+
+    .nav-arrow.prev {
+        right: 90px; /* Cách nút next 40px (50px width + 40px gap) */
+    }
+
+    .nav-arrow.next {
+        right: 30px; /* Cách mép phải 30px */
+    }
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        border-radius: 6px;
+    }
+
+        .nav-arrow.prev {
+            right: 70px; /* Điều chỉnh cho mobile */
+        }
+
+        .nav-arrow.next {
+            right: 20px;
+        }
+}
+/* Progress Bar */
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    width: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    background: white;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-slide {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .slide-1 .content,
+    .slide-2 .content,
+    .slide-3 .content {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+        .slide-1 .content h1,
+        .slide-2 .content h1,
+        .slide-3 .content h1 {
+            font-size: 2.5rem;
+        }
+
+    .slide-1 .clothes-rack,
+    .slide-2 .laptop,
+    .slide-3 .business-img {
+        width: 300px;
+        height: 200px;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+        .nav-arrow.prev {
+            left: 15px;
+        }
+
+        .nav-arrow.next {
+            right: 15px;
+        }
+}
+
+
+.hero {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    left: 5%;
+    max-width: 500px;
+    font-weight: bold;
+    color: #ff0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+    .hero-text p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+.promo-banner {
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    background-color: #f9f9f9;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23%;
+    text-align: center;
+}
+
+    .service-item i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .service-item h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .service-item p {
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+.section-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    position: relative;
+}
+
+    .section-title:after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background-color: #333;
+        margin: 10px auto;
+    }
+
+
+
+.instagram-section {
+    margin: 50px 0;
+}
+
+.instagram-photos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.instagram-photo {
+    width: 32%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.newsletter {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        outline: none;
+    }
+
+    .newsletter-form button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 0 15px;
+        cursor: pointer;
+    }
+
+.user-dropdown-menu.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* Đảm bảo dropdown có thể click được */
+.user-dropdown-menu {
+    pointer-events: auto !important;
+}
+
+.dropdown-item {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Cải thiện UX - giữ dropdown mở khi hover */
+.user-dropdown:hover .user-dropdown-menu,
+.user-dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Style cho trạng thái active */
+.user-info.active {
+    background-color: rgba(102, 126, 234, 0.1);
+}
+
+/* Đảm bảo z-index cao */
+.user-dropdown-menu {
+    z-index: 9999 !important;
+}

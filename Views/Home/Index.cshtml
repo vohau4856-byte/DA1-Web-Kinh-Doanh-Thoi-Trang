@@ -1,0 +1,347 @@
+﻿@{
+    ViewData["Title"] = "HOME";
+}
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Sanpham>
+<link rel="stylesheet" href="~/css/SanPham.css" />
+<link rel="stylesheet" href="~/css/HomeIndex.css" />
+
+
+<!-- Hero Section -->
+
+
+<div class="hero-carousel">
+    <div class="carousel-container">
+        <!-- Slide 1: Image Only -->
+        <div class="carousel-slide slide-1 active">
+
+        </div>
+
+        <!-- Slide 2: Image Only -->
+        <div class="carousel-slide slide-2">
+
+        </div>
+
+        <!-- Slide 3: Image Only -->
+        <div class="carousel-slide slide-3">
+
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrow prev" onclick="changeSlide(-1)">‹</div>
+    <div class="nav-arrow next" onclick="changeSlide(1)">›</div>
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+</div>
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    const slideInterval = 5000; // 5 seconds
+    let autoSlideTimer;
+    let progressTimer;
+
+    // Initialize
+    function init() {
+    console.log('Initializing carousel with', totalSlides, 'slides');
+    showSlide(0);
+    startAutoSlide();
+    }
+
+    // Show specific slide
+    function showSlide(index) {
+    console.log('Showing slide', index);
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    // Add active class to current slide and dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    currentSlide = index;
+    resetProgressBar();
+    }
+
+    // Go to specific slide
+    function goToSlide(index) {
+    showSlide(index);
+    resetAutoSlide();
+    }
+
+    // Change slide (next/prev)
+    function changeSlide(direction) {
+    let nextSlide = currentSlide + direction;
+
+    if (nextSlide >= totalSlides) {
+    nextSlide = 0;
+    } else if (nextSlide < 0) {
+    nextSlide = totalSlides - 1;
+    }
+
+    console.log('Changing to slide', nextSlide);
+    showSlide(nextSlide);
+    resetAutoSlide();
+    }
+
+    // Auto slide functionality
+    function startAutoSlide() {
+    console.log('Starting auto slide');
+    clearInterval(autoSlideTimer);
+    clearInterval(progressTimer);
+
+    autoSlideTimer = setInterval(() => {
+    changeSlide(1);
+    }, slideInterval);
+
+    startProgressBar();
+    }
+
+    function resetAutoSlide() {
+    console.log('Resetting auto slide');
+    clearInterval(autoSlideTimer);
+    clearInterval(progressTimer);
+    startAutoSlide();
+    }
+
+    // Progress bar
+    function startProgressBar() {
+    const progressFill = document.querySelector('.progress-fill');
+    let progress = 0;
+    const increment = 100 / (slideInterval / 50); // Update every 50ms for smoother animation
+
+    progressTimer = setInterval(() => {
+    progress += increment;
+    progressFill.style.width = progress + '%';
+
+    if (progress >= 100) {
+    clearInterval(progressTimer);
+    }
+    }, 50);
+    }
+
+    function resetProgressBar() {
+    const progressFill = document.querySelector('.progress-fill');
+    progressFill.style.width = '0%';
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+    changeSlide(-1);
+    } else if (e.key === 'ArrowRight') {
+    changeSlide(1);
+    }
+    });
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const carousel = document.querySelector('.hero-carousel');
+
+    carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    });
+
+    function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+    // Swipe left - next slide
+    changeSlide(1);
+    } else {
+    // Swipe right - prev slide
+    changeSlide(-1);
+    }
+    }
+    }
+
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+    init();
+    });
+
+    // Fallback initialization
+    if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+    } else {
+    init();
+    }
+</script>
+
+
+
+<!-- SP MỚI -->
+<section class="container">
+    <h2 class="section-title">SẢN PHẨM MỚI</h2>
+
+    <div class="product-grid">
+
+        @foreach (var item in ViewBag.SanPhamMoi)
+        {
+             <form method="post" action="@Url.Action("ThemVaoGio", "GioHang")">
+                <input type="hidden" name="MaSanPham" value="@item.IdSanpham" />
+                <input type="hidden" name="SoLuong" value="1" />
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="~/ImgSanPham/@item.ImageUrl">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">@item.TenSanpham</h3>
+                    <div class="product-price">
+                        <span class="current-price">₫@item.Gia?.ToString("N0")</span>
+                    </div>
+                    <div class="product-details">
+                      
+                        <p><strong>Size:</strong> @item.Size</p>
+                      
+                    </div>
+                    <div class="product-badges">
+                        @if (item.SoLuongTonKho > 0)
+                        {
+                            <span class="badge badge-available">Còn hàng</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-sold-out">Hết hàng</span>
+                        }
+
+                        @if (item.CreateAt >= DateTime.Now.AddDays(-7))
+                        {
+                            <span class="badge badge-new">Mới</span>
+                        }
+                    </div>
+                    <div class="product-actions">
+                        <a href="@Url.Action("DetailsSanPham", "Sanpham", new { id = item.IdSanpham })" class="btn btn-view">Xem chi tiết</a>
+                        <button class="btn btn-cart" onclick="addToCart('@item.IdSanpham')">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        }
+        </div>
+   </section>
+
+   
+    <section class="container">
+        <h2 class="section-title">SẢN PHẨM CHO NAM</h2>
+    <div class="product-grid" >
+
+        @foreach (var item in ViewBag.SanPhamChoNam)
+        {
+             <form method="post" action="@Url.Action("ThemVaoGio", "GioHang")">
+                <input type="hidden" name="MaSanPham" value="@item.IdSanpham" />
+                <input type="hidden" name="SoLuong" value="1" />
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="~/ImgSanPham/@item.ImageUrl">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">@item.TenSanpham</h3>
+                    <div class="product-price">
+                        <span class="current-price">₫@item.Gia?.ToString("N0")</span>
+                    </div>
+                    <div class="product-details">
+
+                        <p><strong>Size:</strong> @item.Size</p>
+
+                    </div>
+                    <div class="product-badges">
+                        @if (item.SoLuongTonKho > 0)
+                        {
+                            <span class="badge badge-available">Còn hàng</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-sold-out">Hết hàng</span>
+                        }
+
+                        @if (item.CreateAt >= DateTime.Now.AddDays(-7))
+                        {
+                            <span class="badge badge-new">Mới</span>
+                        }
+                    </div>
+                    <div class="product-actions">
+                        <a href="@Url.Action("DetailsSanPham", "Sanpham", new { id = item.IdSanpham })" class="btn btn-view">Xem chi tiết</a>
+
+                        <button class="btn btn-cart" onclick="addToCart('@item.IdSanpham')">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+           
+        }
+    </div>
+    </section>
+    <section class="container">
+        <h2 class="section-title">SẢN PHẨM CHO NỮ</h2>
+    <div class="product-grid">
+
+        @foreach (var item in ViewBag.SanPhamChoNu)
+        {
+             <form method="post" action="@Url.Action("ThemVaoGio", "GioHang")">
+                <input type="hidden" name="MaSanPham" value="@item.IdSanpham" />
+                <input type="hidden" name="SoLuong" value="1" />
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="~/ImgSanPham/@item.ImageUrl">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">@item.TenSanpham</h3>
+                    <div class="product-price">
+                        <span class="current-price">₫@item.Gia?.ToString("N0")</span>
+                    </div>
+                    <div class="product-details">
+                        
+                        <p><strong>Size:</strong> @item.Size</p>
+               
+                    </div>
+                    <div class="product-badges">
+                        @if (item.SoLuongTonKho > 0)
+                        {
+                            <span class="badge badge-available">Còn hàng</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-sold-out">Hết hàng</span>
+                        }
+
+                        @if (item.CreateAt >= DateTime.Now.AddDays(-7))
+                        {
+                            <span class="badge badge-new">Mới</span>
+                        }
+                    </div>
+                    <div class="product-actions">
+                        <a href="@Url.Action("DetailsSanPham", "Sanpham", new { id = item.IdSanpham })" class="btn btn-view">Xem chi tiết</a>
+
+                        <button class="btn btn-cart" onclick="addToCart('@item.IdSanpham')">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        }
+    </div>
+       
+    </section>
+
+

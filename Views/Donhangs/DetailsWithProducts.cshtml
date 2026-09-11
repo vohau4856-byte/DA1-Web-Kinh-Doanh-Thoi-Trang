@@ -1,0 +1,112 @@
+﻿@model DA1CNTT.Models.Donhang
+
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+    Layout = null;
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #444;
+        margin-bottom: 20px;
+    }
+
+    .order-info {
+        background: #fff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+        .order-info p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+    table {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    th {
+        background: #007bff;
+        color: white;
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .total-price {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #d9534f;
+    }
+
+    .btn-custom {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 15px;
+        border-radius: 6px;
+        background: #6c757d;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        .btn-custom:hover {
+            background: #5a6268;
+            text-decoration: none;
+        }
+</style>
+
+<h2>Chi tiết đơn hàng @Model.IdDonhang</h2>
+
+<p><strong>Mã Người Dùng:</strong> @Model.IdUsersNavigation?.IdUsers</p>
+<p><strong>Người đặt:</strong> @Model.IdUsersNavigation?.Username</p>
+
+<p><strong>Ngày đặt:</strong> @Model.Ngaydathang?.ToString("dd/MM/yyyy")</p>
+<p><strong>Trạng thái:</strong> @Model.Trangthai</p>
+
+<hr />
+
+<h3>Sản phẩm trong đơn</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ct in Model.Chitietdonhangs)
+        {
+            <tr>
+                <td>@ct.IdSanphamNavigation?.TenSanpham</td>
+                <td>@ct.Soluong</td>
+                <td>@ct.Giadat?.ToString("n0") đ</td>
+                <td>@(ct.Soluong * ct.Giadat) đ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <strong>Tổng tiền:</strong>
+    @Model.Chitietdonhangs.Sum(ct => ct.Soluong * ct.Giadat)?.ToString("n0") đ
+</p>
+
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>

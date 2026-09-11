@@ -1,0 +1,86 @@
+﻿@model DA1CNTT.Models.Donhang
+@{
+    Layout = null;
+    ViewData["Title"] = "Đặt hàng thành công";
+}
+
+<h2>🎉 Đặt hàng thành công!</h2>
+
+
+
+<hr />
+
+<h4>Thông tin đơn hàng</h4>
+<ul>
+    <li><strong>Mã đơn hàng:</strong> @Model.IdDonhang</li>
+    <li><strong>Ngày đặt:</strong> @Model.Ngaydathang?.ToString("dd/MM/yyyy HH:mm")</li>
+    
+    <li><strong>Trạng thái:</strong> @Model.Trangthai</li>
+</ul>
+
+<hr />
+
+<a class="btn btn-primary" href="/SanPham/">Tiếp tục mua sắm</a>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f7f7;
+        padding: 30px;
+        color: #333;
+    }
+
+    h2 {
+        color: #27ae60;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+        font-size: 18px;
+        color: #444;
+    }
+
+    hr {
+        margin: 30px 0;
+        border: 0;
+        border-top: 2px solid #ddd;
+    }
+
+    h4 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+        ul li strong {
+            color: #555;
+            margin-right: 5px;
+        }
+
+
+
+    .btn {
+        display: block;
+        width: max-content;
+        margin: 30px auto 0;
+        padding: 12px 25px;
+        background-color: #2980b9;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #1c6ea4;
+        }
+
+</style>

@@ -1,0 +1,98 @@
+﻿@model List<Chitietgiohang>
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Giỏ hàng";
+    decimal tongTien = 0;
+
+}
+
+<link rel="stylesheet" href="~/css/GioHang.css" />
+
+<h2>Giỏ hàng của bạn</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Giỏ hàng của bạn đang trống.</p>
+}
+else
+{
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Size</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Ngày tạo</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                decimal gia = item.IdSanphamNavigation?.Gia ?? 0;
+                int soluong = item?.Soluong ?? 0;
+                tongTien += gia * soluong;
+                <tr>
+                    <td>
+                        <img src="@Url.Content("~/img/" + item.IdSanphamNavigation.ImageUrl)" alt="Ảnh sản phẩm" />
+                    </td>
+
+                    <td>@item.IdSanphamNavigation.TenSanpham</td>
+                    <td></td>
+                    <td>@gia.ToString("N0") VNĐ</td>
+                    <td>
+                        <form asp-action="CapNhatSoLuong" method="post" class="update-form">
+                            <input type="hidden" name="maChiTietGH" value="@item.IdChitietGiohang" />
+                            <input type="number" name="soLuong" value="@item.Soluong" min
+                            ="1" />
+                            <button type="submit" class="btn-update">Cập nhật</button>
+                        </form>
+                    </td>
+                    <td>@(((DateTime)item.NgayTao).ToString("dd/MM/yyyy"))</td>
+                    <td>
+                        <form asp-action="Xoa" method="post">
+                            <input type="hidden" name="maChiTietGH" value="@item.IdChitietGiohang" />
+                            <button type="submit" class="btn-delete">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    @if (TempData["ThongBao"] != null)
+    {
+        <p style="color: red;">@TempData["ThongBao"]</p>
+    }
+
+    <!-- Hiển thị tổng tiền và giảm giá -->
+    <div style="text-align: right; margin-top: 20px; margin-right: 10px;">
+        <p><strong>Tổng tiền:</strong> @tongTien.ToString("N0") VNĐ</p>
+        
+        
+
+
+
+
+    </div>
+
+    <!-- Nút đặt hàng và tiếp tục mua -->
+    <div style="margin-top: 20px;">
+        <form asp-action="ThongTinDonHang" asp-controller="GioHang" method="post">
+            <input type="hidden" name="SoTien" value="@tongTien" />
+            <input type="hidden" name="PhuongThuc" value="Thanh toán khi nhận hàng" />
+            <button type="submit" class="btn-update">Đặt hàng</button>
+        </form>
+
+        <a href="@Url.Action("Index", "SanPham")" class="btn-continue-shopping">
+            ← Quay lại tiếp tục mua hàng
+        </a>
+    </div>
+}

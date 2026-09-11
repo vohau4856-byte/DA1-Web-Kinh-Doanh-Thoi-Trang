@@ -1,0 +1,461 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DA1CNTT.bundle.scp.css",
+      "PackagePath": "staticwebassets\\DA1CNTT.q1qmtqgimh.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\SP2.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\SP2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\SP3.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\SP3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp1.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp10.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp11.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp12.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp13.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp14.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp15.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp15.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp16.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp16.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp17.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp17.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp18.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp18.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp19.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp19.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp20.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp20.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp21.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp21.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp22.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp22.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp23.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp23.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp24.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp24.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp25.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp25.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp26.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp26.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp27.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp27.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp28.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp28.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp4.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp5.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp6.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp7.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp8.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgSanPham\\sp9.jpg",
+      "PackagePath": "staticwebassets\\ImgSanPham\\sp9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgUser\\user.png",
+      "PackagePath": "staticwebassets\\ImgUser\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgWeb\\Login.jpg",
+      "PackagePath": "staticwebassets\\ImgWeb\\Login.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgWeb\\hero-img1.jpg",
+      "PackagePath": "staticwebassets\\ImgWeb\\hero-img1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgWeb\\hero-img2.jpg",
+      "PackagePath": "staticwebassets\\ImgWeb\\hero-img2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgWeb\\hero-img3.jpg",
+      "PackagePath": "staticwebassets\\ImgWeb\\hero-img3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgWeb\\logo.jpg",
+      "PackagePath": "staticwebassets\\ImgWeb\\logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\ImgWeb\\logo.png",
+      "PackagePath": "staticwebassets\\ImgWeb\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\AdminCSS.css",
+      "PackagePath": "staticwebassets\\css\\AdminCSS.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\AdminHome.css",
+      "PackagePath": "staticwebassets\\css\\AdminHome.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\ChangePassword.css",
+      "PackagePath": "staticwebassets\\css\\ChangePassword.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\DetailsSP.css",
+      "PackagePath": "staticwebassets\\css\\DetailsSP.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\GioHang.css",
+      "PackagePath": "staticwebassets\\css\\GioHang.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\Home.css",
+      "PackagePath": "staticwebassets\\css\\Home.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\HomeChinhSach.css",
+      "PackagePath": "staticwebassets\\css\\HomeChinhSach.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\HomeIndex.css",
+      "PackagePath": "staticwebassets\\css\\HomeIndex.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\Profile.css",
+      "PackagePath": "staticwebassets\\css\\Profile.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\SanPham.css",
+      "PackagePath": "staticwebassets\\css\\SanPham.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\Sanpham2.css",
+      "PackagePath": "staticwebassets\\css\\Sanpham2.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\UsersAdmin.css",
+      "PackagePath": "staticwebassets\\css\\UsersAdmin.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\_LayoutIndex.css",
+      "PackagePath": "staticwebassets\\css\\_LayoutIndex.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\AKIRA\\Downloads\\DA1CNTT\\DA1CNTT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DA1CNTT.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DA1CNTT.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.DA1CNTT.props",
+      "PackagePath": "build\\DA1CNTT.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DA1CNTT.props",
+      "PackagePath": "buildMultiTargeting\\DA1CNTT.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DA1CNTT.props",
+      "PackagePath": "buildTransitive\\DA1CNTT.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,378 @@
+﻿
+<link rel="stylesheet" href="~/css/Sanpham2.css" />
+<link rel="stylesheet" href="~/css/HomeIndex.css" />
+
+@model List<DA1CNTT.Models.Sanpham>
+@{
+    ViewData["Title"] = "SẢN PHẨM";
+}
+
+
+
+<div class="breadcrumb">
+    <nav>
+        <a href="~/Home/Index">Trang chủ</a>
+        <span>/</span>
+        <a href="~/Sanpham/Index">Sản Phẩm</a>
+        @if (!string.IsNullOrEmpty(ViewBag.SearchKeyword))
+        {
+            <span>/</span>
+            <span>Kết quả tìm kiếm: "@ViewBag.SearchKeyword"</span>
+        }
+    </nav>
+</div>
+
+<div class="main-content">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h3><i class="fas fa-bars"></i> Tất Cả Danh Mục</h3>
+        <ul class="category-list">
+            @if (ViewBag.Danhmucs != null)
+            {
+                @foreach (var danhmuc in ViewBag.Danhmucs)
+                {
+                    <li>
+                        <a href="@Url.Action("Index", new { danhmuc = danhmuc.IdDanhmuc })"
+                           class="category-link @(ViewBag.SelectedCategory == danhmuc.IdDanhmuc ? "active" : "")">
+                            @danhmuc.NameDanhmuc
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </aside>
+
+    <!-- Products Section -->
+    <main class="products-section">
+        <div class="products-header">
+
+
+
+            <div class="sort-options">
+                <select id="sortSelect">
+                    <option value="">Sắp xếp theo</option>
+                    <option value="newest">Mới Nhất</option>
+                    <option value="price_asc">Giá Thấp đến Cao</option>
+                    <option value="price_desc">Giá Cao đến Thấp</option>
+                    <option value="name_asc">Tên A-Z</option>
+                    <option value="name_desc">Tên Z-A</option>
+                </select>
+            </div>
+           
+        </div>
+
+       
+        
+        <div class="products-grid" id="productsGrid">
+            
+            @foreach (var sanpham in Model)
+            {
+
+                <div class="product-card" data-price="@(sanpham.Gia ?? 0)"
+                     data-date="@(sanpham.CreateAt?.ToString("yyyy-MM-dd HH:mm:ss") ?? "1900-01-01")"
+                     data-name="@(sanpham.TenSanpham ?? "")">
+                    
+                <form method="post" action="@Url.Action("ThemVaoGio", "GioHang")">
+                     
+                    <input type="hidden" name="MaSanPham" value="@sanpham.IdSanpham" />
+                    <div class="product-image">
+                        <img src="~/ImgSanPham/@sanpham.ImageUrl" alt="@sanpham.TenSanpham">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">@sanpham.TenSanpham</h3>
+                        <div class="product-price">
+                            <span class="current-price">₫@sanpham.Gia?.ToString("N0")</span>
+                        </div>
+                        <div class="product-details">
+                            <p><strong>Size:</strong> @sanpham.Size</p>
+
+                        </div>
+                           <input type="number" name="SoLuong" value="1" min="1" style="width: 60px; justify-content:center;" />
+
+                        <div class="product-badges">
+                            @if (sanpham.SoLuongTonKho > 0)
+                            {
+                                <span class="badge badge-available">Còn hàng</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-sold-out">Hết hàng</span>
+                            }
+
+                            @if (sanpham.CreateAt >= DateTime.Now.AddDays(-7))
+                            {
+                                <span class="badge badge-new">Mới</span>
+                            }
+                        </div>
+                        <div class="product-actions">
+                            <a href="@Url.Action("DetailsSanPham", new { id = sanpham.IdSanpham })" class="btn btn-view">Xem chi tiết</a>
+                            <button class="btn btn-cart" onclick="addToCart('@sanpham.IdSanpham')">Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                 
+            }
+            
+        </div>
+       
+        @if (!Model.Any())
+        {
+            <div class="no-products">
+                <p>Không tìm thấy sản phẩm nào trong danh mục này.</p>
+            </div>
+        }
+        @if (ViewBag.TotalPages > 1)
+        {
+            <div class="pagination">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <a href="@Url.Action("Index", new {
+                        page = i,
+                        sortBy = ViewBag.SortBy,
+                        search = ViewBag.SearchKeyword,
+                        danhmuc = ViewBag.SelectedCategory
+                    })"
+                       class="@(ViewBag.CurrentPage == i ? "active" : "")">
+                        @i
+                    </a>
+                }
+            </div>
+        }
+
+    </main>
+
+</div>
+
+<script>
+    // Hàm sắp xếp sản phẩm - VERSION CẢI TIẾN
+    function sortProducts() {
+        console.log('sortProducts() được gọi'); // Debug log
+
+        const sortSelect = document.getElementById('sortSelect');
+        const sortValue = sortSelect.value;
+        const productsGrid = document.getElementById('productsGrid');
+
+        console.log('Sort value:', sortValue); // Debug log
+
+        if (!sortValue || !productsGrid) {
+            console.log('Không có giá trị sort hoặc không tìm thấy grid');
+            return;
+        }
+
+        // Lấy tất cả product cards
+        const productCards = Array.from(productsGrid.querySelectorAll('.product-card'));
+        console.log('Số lượng sản phẩm:', productCards.length); // Debug log
+
+        // Sắp xếp array
+        productCards.sort((a, b) => {
+            switch (sortValue) {
+                case 'newest':
+                    const dateA = new Date(a.dataset.date);
+                    const dateB = new Date(b.dataset.date);
+                    return dateB - dateA;
+
+                case 'price_asc':
+                    const priceA = parseFloat(a.dataset.price) || 0;
+                    const priceB = parseFloat(b.dataset.price) || 0;
+                    return priceA - priceB;
+
+                case 'price_desc':
+                    const priceA2 = parseFloat(a.dataset.price) || 0;
+                    const priceB2 = parseFloat(b.dataset.price) || 0;
+                    return priceB2 - priceA2;
+
+                case 'name_asc':
+                    const nameA = a.dataset.name.toLowerCase();
+                    const nameB = b.dataset.name.toLowerCase();
+                    return nameA.localeCompare(nameB);
+
+                case 'name_desc':
+                    const nameA2 = a.dataset.name.toLowerCase();
+                    const nameB2 = b.dataset.name.toLowerCase();
+                    return nameB2.localeCompare(nameA2);
+
+                default:
+                    return 0;
+            }
+        });
+
+        console.log('Đã sắp xếp xong'); // Debug log
+
+        // Xóa tất cả và thêm lại theo thứ tự mới
+        productsGrid.innerHTML = '';
+
+        productCards.forEach((card, index) => {
+            // Reset styles
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            productsGrid.appendChild(card);
+
+            // Animate từng card
+            setTimeout(() => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 50);
+        });
+
+        console.log('Hoàn thành animation'); // Debug log
+    }
+
+    // Hàm thêm vào giỏ hàng (placeholder)
+    function addToCart(productId) {
+        console.log('Thêm sản phẩm vào giỏ:', productId);
+        alert('Đã thêm sản phẩm vào giỏ hàng!');
+    }
+
+    // Khởi tạo khi DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded'); // Debug log
+
+        // Gắn event listener cho dropdown
+        const sortSelect = document.getElementById('sortSelect');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', sortProducts);
+            console.log('Event listener đã được gắn'); // Debug log
+        } else {
+            console.error('Không tìm thấy sortSelect element');
+        }
+
+        // Giữ lại giá trị đã chọn nếu có trong URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sortBy = urlParams.get('sortBy');
+        if (sortBy && sortSelect) {
+            sortSelect.value = sortBy;
+            console.log('Đã set giá trị sort từ URL:', sortBy);
+        }
+
+        // Preload images
+        function preloadImages() {
+            const images = document.querySelectorAll('.product-image img');
+            images.forEach(img => {
+                const imageObj = new Image();
+
+                imageObj.onload = function() {
+                    img.style.opacity = '1';
+                    img.parentElement.classList.add('loaded');
+                };
+
+                imageObj.onerror = function() {
+                    img.src = '/images/no-image.png';
+                    img.alt = 'Ảnh không tải được';
+                    img.parentElement.classList.add('loaded');
+                };
+
+                if (img.dataset.src) {
+                    imageObj.src = img.dataset.src;
+                    img.src = img.dataset.src;
+                } else if (img.src) {
+                    imageObj.src = img.src;
+                }
+            });
+        }
+
+        // Menu dropdown logic
+        const menuItems = document.querySelectorAll('.header-menu ul li');
+        menuItems.forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) {
+                let hoverTimer;
+
+                item.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimer);
+                    dropdown.style.display = 'block';
+                    dropdown.offsetHeight;
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    hoverTimer = setTimeout(() => {
+                        dropdown.style.display = 'none';
+                    }, 150);
+                });
+
+                dropdown.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimer);
+                });
+
+                dropdown.addEventListener('mouseleave', () => {
+                    hoverTimer = setTimeout(() => {
+                        dropdown.style.display = 'none';
+                    }, 150);
+                });
+            }
+        });
+
+        // Lazy loading
+        function setupLazyLoading() {
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px'
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        }
+
+        // Initialize các chức năng
+        preloadImages();
+        setupLazyLoading();
+
+        console.log('Tất cả chức năng đã được khởi tạo');
+    });
+
+    // CSS optimization
+    (function() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .product-image img {
+                image-rendering: -webkit-optimize-contrast !important;
+                image-rendering: optimize-contrast !important;
+                backface-visibility: hidden !important;
+                -webkit-backface-visibility: hidden !important;
+                transform: translateZ(0) !important;
+                -webkit-transform: translateZ(0) !important;
+            }
+
+            .product-card {
+                transform: translateZ(0) !important;
+                -webkit-transform: translateZ(0) !important;
+                transition: all 0.3s ease !important;
+            }
+
+            .products-grid {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+                gap: 20px !important;
+            }
+
+            .sort-options select {
+                padding: 8px 12px !important;
+                border: 1px solid #ddd !important;
+                border-radius: 4px !important;
+                background: white !important;
+                cursor: pointer !important;
+            }
+
+            .sort-options select:focus {
+                outline: none !important;
+                border-color: #007bff !important;
+            }
+        `;
+        document.head.appendChild(style);
+    })();
+</script>

@@ -1,0 +1,214 @@
+﻿@model DA1CNTT.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+}
+@using X.PagedList.Mvc.Core;
+
+@* Kiểm tra Model null *@
+@if (Model == null)
+{
+    <div class="alert alert-danger">
+        <h4>Lỗi!</h4>
+        <p>Không thể tải thông tin người dùng. Vui lòng <a href="/Customer/Login">đăng nhập lại</a>.</p>
+    </div>
+    return;
+}
+<link rel="stylesheet" href="~/css/HomeIndex.css" />
+<link rel="stylesheet" href="~/css/Profile.css" />
+
+<div class="profile-page">
+    <div class="container">
+        <div class="header">
+            <h1>Hồ Sơ Của Tôi</h1>
+            <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+        </div>
+
+        @if (!string.IsNullOrEmpty(ViewBag.Success))
+        {
+            <div class="alert alert-success">
+                @ViewBag.Success
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Error
+            </div>
+        }
+
+        <div class="form-container">
+            <div class="form-left">
+                <form asp-action="Profile" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+
+                    <input type="hidden" asp-for="IdUsers" />
+                    <input type="hidden" asp-for="Username" />
+                    <input type="hidden" asp-for="PasswordUsers" />
+                    <input type="hidden" asp-for="Roles" />
+                    <input type="hidden" asp-for="CreateAt" />
+                    <input type="hidden" asp-for="ImgUrl" />
+
+                    <div class="form-group">
+                        <label for="username">Tên đăng nhập</label>
+                        <input type="text" id="username" value="@(Model?.Username ?? "")" readonly>
+                    </div>
+                    <div class="note">
+                        Tên Đăng nhập chỉ có thể thay đổi một lần.
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tennguoidung">Tên</label>
+                        <input asp-for="Tennguoidung" type="text" placeholder="Nhập họ và tên" value="@(Model?.Tennguoidung ?? "")">
+                        <span asp-validation-for="Tennguoidung" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <div style="flex: 1; display: flex; align-items: center; gap: 10px;">
+                            <input asp-for="Email" type="email" style="flex: 1;" value="@(Model?.Email ?? "")" onblur="checkEmail(this.value)">
+                            <span id="email-status"></span>
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Phone">Số điện thoại</label>
+                        <div style="flex: 1; display: flex; align-items: center; gap: 10px;">
+                            <input asp-for="Phone" type="tel" placeholder="Nhập số điện thoại" style="flex: 1;" value="@(Model?.Phone ?? "")">
+                        </div>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Diachi">Địa chỉ</label>
+                        <textarea asp-for="Diachi" placeholder="Nhập địa chỉ của bạn">@(Model?.Diachi ?? "")</textarea>
+                        <span asp-validation-for="Diachi" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="save-button">Lưu</button>
+                </form>
+            </div>
+
+            <div class="form-right">
+                <div class="avatar-section">
+                    <div class="avatar-container">
+                        <div class="avatar">
+                            @if (!string.IsNullOrEmpty(Model?.ImgUrl) && Model.ImgUrl != "user.png")
+                            {
+                                <img src="~/ImgUser/@Model.ImgUrl" alt="Avatar" class="avatar-img" />
+                            }
+                            else
+                            {
+                                <svg class="avatar-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
+                                </svg>
+                            }
+                        </div>
+                        <div class="avatar-upload">
+                            <input type="file" id="avatar" name="avatar" accept="image/*" onchange="previewAvatar(this)">
+                            <label for="avatar" class="upload-label">Chọn Ảnh</label>
+                            <div class="upload-info">
+                                Dung lượng file tối đa 1 MB<br>
+                                Định dạng: JPEG, PNG
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Preview avatar trước khi upload
+    function previewAvatar(input) {
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+
+            // Kiểm tra kích thước file
+            if (file.size > 1048576) { // 1MB
+                alert('Dung lượng file không được vượt quá 1MB!');
+                input.value = '';
+                return;
+            }
+
+            // Kiểm tra định dạng
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Chỉ chấp nhận file JPEG hoặc PNG!');
+                input.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const avatar = document.querySelector('.avatar');
+                avatar.innerHTML = `<img src="${e.target.result}" alt="Avatar" class="avatar-img" />`;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Kiểm tra email đã tồn tại
+    async function checkEmail(email) {
+        if (!email) return;
+
+        try {
+            const response = await fetch('/Customer/CheckEmailExists', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                },
+                body: JSON.stringify({ email: email })
+            });
+
+            const result = await response.json();
+            const status = document.getElementById('email-status');
+
+            if (result.exists) {
+                status.innerHTML = '<span style="color: red;">Email đã tồn tại!</span>';
+            } else {
+                status.innerHTML = '<span style="color: green;"></span>';
+            }
+        } catch (error) {
+            console.error('Error checking email:', error);
+        }
+    }
+</script>
+
+<style>
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    .avatar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.875em;
+        margin-top: 5px;
+    }
+</style>

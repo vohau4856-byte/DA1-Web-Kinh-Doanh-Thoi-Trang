@@ -1,0 +1,133 @@
+﻿
+
+.chinhsach {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.head {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 3px solid #007bff;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.company-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #007bff;
+}
+
+.company-name {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+.address {
+    color: #666;
+    margin-top: 5px;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 1.4em;
+    margin: 25px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+h3 {
+    color: #007bff;
+    font-size: 1.2em;
+    margin: 20px 0 10px 0;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.chinhsach ul {
+    margin: 15px 0;
+    padding-left: 25px;
+    list-style: disc;
+}
+
+.chinhsach li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.highlight {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin: 20px 0;
+}
+
+.contact-section {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .contact-section h3 {
+        color: #007bff;
+        margin-bottom: 15px;
+    }
+
+.highlight {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin: 20px 0;
+}
+
+.contact-section {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    text-align: center;
+}
+.contact-section h3 {
+        color: #007bff;
+        margin-bottom: 15px;
+}
+
+
+.section {
+    margin-bottom: 30px;
+}
+
+.important-note {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+    .important-note strong {
+        color: #155724;
+    }

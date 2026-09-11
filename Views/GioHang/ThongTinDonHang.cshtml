@@ -1,0 +1,166 @@
+﻿@model DA1CNTT.Models.Donhang
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Nhập thông tin đơn hàng";
+    var nguoiDung = ViewBag.NguoiDung as DA1CNTT.Models.User;
+    var tongTien = ViewBag.TongTien as decimal? ?? 0;
+    var maDonHang = ViewBag.MaDonHang as string;
+    var ngayDat = DateTime.Now;
+}
+
+<h2>Nhập thông tin đơn hàng</h2>
+
+<form method="post" asp-controller="Giohang" asp-action="ThanhToan">
+    <div>
+        <label>Mã đơn hàng:</label>
+        <input type="text" name="MaDonHang" value="@maDonHang" readonly />
+    </div>
+    <div>
+        <label>Họ tên:</label>
+        <input type="text" name="HoTen" value="@nguoiDung?.Tennguoidung" required />
+    </div>
+    <div>
+        <label>Số điện thoại:</label>
+        <input type="tel" name="SoDienThoai" value="@nguoiDung?.Phone" required />
+    </div>
+    <div>
+        <label>Ngày đặt:</label>
+        <input type="text" name="NgayDat" value="@ngayDat.ToString("yyyy-MM-dd HH:mm:ss")" readonly />
+    </div>
+    <div>
+        <label>Tổng tiền:</label>
+        <input type="text" name="TongTienDisplay" value="@tongTien.ToString("#,##0") VNĐ" readonly />
+    </div>
+    <div>
+        <label>Địa chỉ giao hàng:</label>
+        <input type="text" name="DiaChiGiaoHang" value="@nguoiDung?.Diachi" required />
+    </div>
+
+    <label>Phương thức:</label>
+    <select name="PhuongThuc" required>
+
+        <option value="COD">Thanh toán khi nhận hàng</option>
+        <option value="ChuyenKhoan">Chuyển khoản</option>
+    </select>
+
+    <!-- THÔNG TIN CHUYỂN KHOẢN - ẨN BAN ĐẦU -->
+    <div id="chuyenKhoanSection" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; background-color: #f9f9f9;">
+        <h4>Thông tin chuyển khoản</h4>
+        <p><strong>Ngân hàng:</strong> Vietcombank</p>
+        <p><strong>Số tài khoản:</strong> 0123456789</p>
+        <p><strong>Chủ tài khoản:</strong> CÔNG TY TNHH ANANAS</p>
+        <p><strong>Số tiền:</strong> @tongTien.ToString("N0") VNĐ</p>
+        <p><strong>Nội dung chuyển khoản:</strong> Thanh toán DH <strong>@maDonHang</strong></p>
+        <p><a href="https://vcbpay.vietcombank.com.vn/" target="_blank" style="color: blue; text-decoration: underline;">Chuyển khoản ngay</a></p>
+    </div>
+    <input type="hidden" name="MaNguoiDung" value="@nguoiDung?.IdUsers" />
+    <input type="hidden" name="NgayDat" value="@ngayDat.ToString("yyyy-MM-dd HH:mm:ss")" />
+    <input type="hidden" name="TongTien" value="@tongTien" />
+    <input type="hidden" name="TrangThai" value="cho_xu_ly" />
+
+    <button type="submit">Xác nhận đặt hàng</button>
+</form>
+
+
+<script>
+    const paymentSelect = document.querySelector('select[name="PhuongThuc"]');
+    const chuyenKhoanSection = document.getElementById('chuyenKhoanSection');
+
+    paymentSelect.addEventListener('change', function () {
+        if (this.value === 'ChuyenKhoan') {
+            chuyenKhoanSection.style.display = 'block';
+        } else {
+            chuyenKhoanSection.style.display = 'none';
+        }
+    });
+
+    // Hiển thị lại nếu reload trang với lựa chọn Chuyển khoản
+    window.addEventListener('DOMContentLoaded', () => {
+        if (paymentSelect.value === 'ChuyenKhoan') {
+            chuyenKhoanSection.style.display = 'block';
+        }
+    });
+</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    form {
+        background-color: #fff;
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    input[readonly] {
+        background-color: #f5f5f5;
+        color: #666;
+    }
+
+    select {
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    #chuyenKhoanSection h4 {
+        margin-top: 0;
+        color: #2c3e50;
+    }
+
+    #chuyenKhoanSection p {
+        margin: 8px 0;
+        color: #333;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        background-color: #27ae60;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #219150;
+        }
+
+</style>

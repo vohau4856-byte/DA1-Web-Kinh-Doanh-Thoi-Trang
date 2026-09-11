@@ -1,0 +1,16 @@
+﻿.banner-full {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.home-banner-two {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+}
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
