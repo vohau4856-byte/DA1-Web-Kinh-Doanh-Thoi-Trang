@@ -1,7 +1,7 @@
 # 🛒 Website Kinh Doanh Sản Phẩm Quần Áo (Fashion E-Commerce)
 
 > **Báo cáo Đồ án 1** - Ngành Công nghệ Thông tin  
-> **Trường Đại học Nam Cần Thơ** (Khóa K10 - 08/2025)
+> **Trường Đại học Nam Cần Thơ** (Khóa K10)
 
 ---
 
